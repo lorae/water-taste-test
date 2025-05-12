@@ -7,6 +7,7 @@ library("purrr")
 # ----- STEP 1: Read and reshape the raw data ----- #
 
 data_raw <- read_excel("input/Water taste test (TEST Responses).xlsx")
+key <- read_excel("input/key.xlsx")
 
 # Rename columns from Google Forms to be more concise
 data_renamed <- data_raw |> 
@@ -34,8 +35,9 @@ data_long <- map_dfr(1:w, function(i) {
       respondent = respondent
     )
 }) |>
-  arrange(water, respondent)
-
+  arrange(water, respondent) |>
+  left_join(key)
+  
 data_processed <- data_long
 
 # ----- STEP 2: Water results ----- #
