@@ -18,13 +18,13 @@ make_wordcloud <- function(data) {
   wordcloud(words = names(word_freq),
             freq = as.integer(word_freq),
             min.freq = 1,
-            scale = c(4, 0.8),
+            scale = c(2, 0.05),
             random.order = FALSE,
             colors = c("#cceeff", "#99ddff", "#66ccff", "#33bbff", "#0099cc", "#006699"))
 }
 
 # Example usage:
-load("throughput/processed-data-TEST.RData")
-sample <- data_processed # |> filter(water == "C")
+load("throughput/processed-data.RData")
+sample <- data_processed |> filter(name == "Well Water")
 
 make_wordcloud(sample)
