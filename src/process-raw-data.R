@@ -6,7 +6,7 @@ library("purrr")
 
 # ----- STEP 1: Read and reshape the raw data ----- #
 
-data_raw <- read_excel("input/Water taste test (TEST Responses).xlsx")
+data_raw <- read_excel("input/Water taste test (Responses).xlsx")
 key <- read_excel("input/key.xlsx")
 
 # Rename columns from Google Forms to be more concise
